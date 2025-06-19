@@ -1,0 +1,296 @@
+body {
+  background-color: #e0e0e0;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.App {
+  min-height: 100vh;
+  color: #222;
+  background: #e0e0e0;
+  transition: background 0.3s, color 0.3s;
+}
+
+.App.dark {
+  background: #181818;
+  color: #f3f3f3;
+}
+
+.theme-toggle {
+  text-align: right;
+  padding: 16px 10vw 0 0;
+}
+
+.theme-toggle button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.1em;
+  cursor: pointer;
+  outline: none;
+  transition: color 0.3s;
+}
+
+.App h1 {
+  color: #32040c;
+  text-align: center;
+}
+
+.App.dark h1 {
+  color: #f3f3f3;
+}
+
+form {
+  display: flex;
+  width: 90vw;
+  max-width: 500px;
+  align-items: center;
+  margin: 20px auto 0 auto;
+  gap: 10px;
+}
+
+form input {
+  flex: 1;
+  height: 35px;
+  background-color: #fff;
+  color: #222;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding-left: 10px;
+  font-size: 1em;
+}
+
+.App.dark form input {
+  background-color: #222;
+  color: #f3f3f3;
+  border: 1px solid #444;
+}
+
+form button {
+  height: 40px;
+  background-color: #32040c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0 18px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.App.dark form button{
+  background-color: #f3f3f3;
+  color: black;
+  border: 1px solid #444;
+}
+form button:hover {
+  background-color: #4a0a1b;
+}
+
+.outerdiv {
+  width: 90vw;
+  max-width: 500px;
+  margin: 30px auto 0 auto;
+}
+
+.outerdiv ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.outerdiv ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 10px;
+  border: 1px solid #131010;
+  margin-bottom: 10px;
+  background-color: #32040c;
+  color: white;
+  border-radius: 5px;
+  position: relative;
+  transition: background 0.3s, color 0.3s;
+}
+
+.App.dark .outerdiv ul li {
+  background-color: #222;
+  color: #f3f3f3;
+  border: 1px solid #444;
+}
+
+.task-main {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.task-content {
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: 20px;
+  min-width: 48px;
+  justify-content: flex-end;
+}
+
+.outerdiv ul li input[type="text"] {
+  margin-right: 8px;
+  padding: 2px 6px;
+  background: #fff;
+  color: #32040c;
+  border: none;
+  border-radius: 3px;
+}
+
+.App.dark .outerdiv ul li input[type="text"] {
+  background: #181818;
+  color: #f3f3f3;
+}
+
+.outerdiv ul li button {
+  margin-left: 4px;
+  padding: 2px 8px;
+  font-size: 0.9em;
+  background: #fff;
+  color: #32040c;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.App.dark .outerdiv ul li button {
+  background: #181818;
+  color: #f3f3f3;
+}
+
+.outerdiv ul li button:hover,
+.outerdiv ul li span:hover {
+  opacity: 0.7;
+}
+
+.checked .task-content {
+  text-decoration: line-through;
+  color: #fff;
+}
+
+.App.dark .checked .task-content {
+  color: #bbb;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .theme-toggle {
+    padding: 16px 5vw 0 0;
+  }
+  form input{
+    width: 80%;
+    max-width: 80%;
+  } .outerdiv {
+    width: 90vw;
+    max-width: 90vw;
+  }
+  .outerdiv ul li {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 6px;
+  }
+  .task-main {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .task-icons {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+
+form select {
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #222;
+  font-size: 1em;
+  padding: 0 10px;
+}
+
+.App.dark form select {
+  background: #222;
+  color: #f3f3f3;
+  border: 1px solid #444;
+}
+
+.priority-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  color: #fff;
+  font-weight: bold;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+  form {
+    flex-direction: column;
+    gap: 8px;
+  }
+  form select {
+    width: 83%;
+  }
+}
+
+
+.header {
+  padding-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.filter-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 20px 0;
+}
+
+.filter-group button {
+  background: #fff;
+  color: #32040c;
+  border: 1px solid #32040c;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.App.dark .filter-group button {
+  background: #222;
+  color: #f3f3f3;
+  border: 1px solid #f3f3f3;
+}
+
+.filter-group button.active,
+.filter-group button:hover {
+  background: #32040c;
+  color: #fff;
+}
+
+.App.dark .filter-group button.active,
+.App.dark .filter-group button:hover {
+  background: #f3f3f3;
+  color: #32040c;
+}
+
