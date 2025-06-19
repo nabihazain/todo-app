@@ -1,7 +1,7 @@
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faEdit, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const PRIORITY_ORDER = { High: 1, Medium: 2, Low: 3 };
 
@@ -39,12 +39,29 @@ function Header({ darkMode, setDarkMode, filter, setFilter }) {
 }
 
 function App() {
-  let [todolist, setTodoList] = useState([]);
+  // Load from localStorage or default to []
+  let [todolist, setTodoList] = useState(() => {
+    const saved = localStorage.getItem('todolist');
+    return saved ? JSON.parse(saved) : [];
+  });
   let [editingIndex, setEditingIndex] = useState(null);
   let [editValue, setEditValue] = useState("");
-  let [darkMode, setDarkMode] = useState("");
+  let [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem('darkMode');
+    return saved ? JSON.parse(saved) : false;
+  });
   let [priority, setPriority] = useState("Medium");
   let [filter, setFilter] = useState("all");
+
+  // Persist todolist to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('todolist', JSON.stringify(todolist));
+  }, [todolist]);
+
+  // Persist darkMode to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }, [darkMode]);
 
   let saveTodoList = (event) => {
     event.preventDefault();
